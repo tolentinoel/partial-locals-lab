@@ -13,4 +13,17 @@
 class Student < ActiveRecord::Base
   has_many :classroom_students
   has_many :classrooms, through: :classroom_students
+
+  # -when it receives a search query
+  # returns all students whose names contain the given string (FAILED - 7)
+  # renders the results with a partial (FAILED - 8)
+
+  def self.search(query)
+    if query.present?
+      where('name LIKE ?', "%#{query}%")
+    else
+      self.all
+    end
+  end
+  
 end
