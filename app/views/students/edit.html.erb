@@ -1,1 +1,4 @@
-<%= render 'form' %>
+<!--changed from just render "form", locals is built in-->
+<!--'student' is a key with a representing value of @student that was used on your _form & _student-->
+
+<%= render partial: 'form', locals: {student: @student} %>
